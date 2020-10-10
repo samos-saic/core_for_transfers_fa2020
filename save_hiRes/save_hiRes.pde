@@ -53,29 +53,27 @@ void setup() {
   )
   .shuffleRequestAll()
  ;
- //saveVector();
- noLoop();
 
+  saveHiRes(3);
 }
 
 void draw() {
-H.drawStage();
-    save("normal.png");
-    saveHiRes(5);
- 
+  H.drawStage();
 }
 
 void saveHiRes(int scaleFactor) {
   PGraphics hires = createGraphics(width*scaleFactor, height*scaleFactor, JAVA2D);
   beginRecord(hires);
   hires.scale(scaleFactor);
-  
-    if (hires == null) {
+
+  if (hires == null) {
     H.drawStage();
-  } else {H.stage().paintAll(hires, false, 1);
+  } else { 
+    H.stage().paintAll(hires, false, 1);
   }
   endRecord();
   hires.save("hires.png");
 }
+
 
 
